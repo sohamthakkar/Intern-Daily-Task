@@ -10,7 +10,7 @@ public class SortedMapDemo {
         sortedMApDemo.put("four", 4);
         sortedMApDemo.put("Ten",10);
         sortedMApDemo.put("two",2);
-//        System.out.println(sortedMApDemo);
+        System.out.println(sortedMApDemo);
 
         /**
          * Using Normal FUnction
@@ -29,6 +29,8 @@ public class SortedMapDemo {
         Collections.sort(entries,(o1, o2) -> o1.getValue().compareTo(o2.getValue()));
 
         sortedMApDemo.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
+
+        //Applied for each loop and print it.
 
         for (Map.Entry<String,Integer> entry: entries) {
             System.out.println(entry.getKey() +": "+entry.getValue());

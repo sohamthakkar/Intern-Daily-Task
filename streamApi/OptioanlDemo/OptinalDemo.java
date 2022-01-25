@@ -34,7 +34,6 @@ public class OptinalDemo {
 
         OptinalDemo custEmail = new OptinalDemo();
         custEmail.getAllCustEmail("pqr");
-
     }
 }
 
@@ -43,6 +42,7 @@ class GFG{
         File file = new File("Textfile.txt");
         file.createNewFile();
 
+        //parallel Stream
         Stream<String> text = Files.lines(Path.of("Textfile.txt"));
         text.parallel().forEach(System.out::println);
         text.close();
