@@ -64,6 +64,7 @@ class RegisterStudent {
         BufferedWriter bfw = new BufferedWriter(fw);
         System.out.print("Enter your name");
         String name = bfr.readLine();
+        
         System.out.print("Enter your Lastname");
         String lname = bfr.readLine();
         bfw.write(name);
