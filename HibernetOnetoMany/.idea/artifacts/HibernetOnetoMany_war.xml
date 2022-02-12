@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HibernetOnetoMany:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>HibernetOnetoMany</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="HibernetOnetoMany-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="HibernetOnetoMany:war exploded" />
+    </root>
+  </artifact>
+</component>

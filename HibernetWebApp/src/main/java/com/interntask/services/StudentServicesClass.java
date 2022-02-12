@@ -77,7 +77,6 @@ public class StudentServicesClass implements StudentServices{
 
         HttpSession hs = request.getSession();
         hs.setAttribute("EditList", list);
-
         response.sendRedirect("editStudentList.jsp");
     }
 
