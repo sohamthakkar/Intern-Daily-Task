@@ -24,7 +24,7 @@ public class StudentServicesClass implements StudentServices{
         String emailPattern = "\"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$\"";
 
         //set in Student model class or pojo class
-        // pojo or model class also known as VO
+        // pojo or model class also known   as VO
         Student student = new Student();
         student.setStudentFn(fname);
         student.setStudentLn(lname);
