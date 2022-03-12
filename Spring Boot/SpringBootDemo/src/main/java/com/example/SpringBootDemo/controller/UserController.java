@@ -41,7 +41,6 @@ public class UserController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/api/user")
 	public UserModel saveEmployee(@Valid @RequestBody UserModel user){
-
 		return userServices.saveEmployee(user);
 	}
 	

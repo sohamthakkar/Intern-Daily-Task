@@ -44,9 +44,6 @@ public class UserServicesImp implements UserServices{
 	public UserModel updateUser(UserModel model, int id) {
 		
 		//if exist or not
-		
-		
-		
 		UserModel userModel = userDao.findById(id).orElseThrow(() -> new ResourceNotFound("User not found with id :"  + id));		
 		userModel.setFname(model.getFname());
 		userModel.setLname(model.getLname());
