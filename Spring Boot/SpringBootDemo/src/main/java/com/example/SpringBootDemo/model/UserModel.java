@@ -1,5 +1,9 @@
 package com.example.SpringBootDemo.model;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-
+@Data
 @Entity
 @Table(name = "User_Data")
 public class UserModel {

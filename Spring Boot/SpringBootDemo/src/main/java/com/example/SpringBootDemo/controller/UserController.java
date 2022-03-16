@@ -9,18 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.SpringBootDemo.model.UserModel;
 import com.example.SpringBootDemo.services.UserServices;
 
 @RestController
+@RequestMapping("/demo")
 public class UserController {
 	
 	@Autowired
@@ -38,12 +33,13 @@ public class UserController {
 		
 	}
 	
-	@PreAuthorize("hasRole('ADMIN')")
+
 	@PostMapping("/api/user")
 	public UserModel saveEmployee(@Valid @RequestBody UserModel user){
 		return userServices.saveEmployee(user);
 	}
-	
+
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/api/user")
 	public List<UserModel> showUser(){
 		return userServices.userList();

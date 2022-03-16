@@ -48,13 +48,13 @@ public class UserServicesImp implements UserServices{
 		userModel.setFname(model.getFname());
 		userModel.setLname(model.getLname());
 		userModel.setMobile(model.getMobile());
-		userModel.setEmail(model.getEmail());
+		model.setEmail(userModel.getEmail());
 		
 		//save exisiting employee in db
-		userDao.save(userModel);
+		return userDao.save(userModel);
 		
 		
-		return userModel;
+//		return userModel;
 	}
 
 	@Override

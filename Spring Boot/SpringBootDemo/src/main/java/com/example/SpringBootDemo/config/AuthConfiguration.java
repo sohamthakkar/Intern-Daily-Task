@@ -11,6 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @Configuration
@@ -31,7 +35,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 			.anyRequest()
 			.authenticated()
 			.and()
-			//.httpBasic()// it use for simple login without logout contrllos
+			//.httpBasic();// it use for simple login without logout contrllos
 			.formLogin();//it use for login with logout contrllos.
 	}
 
@@ -45,8 +49,8 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEnc() {
 		return new BCryptPasswordEncoder(10);
 	}
-	
-	
+
+
 	
 	
 
