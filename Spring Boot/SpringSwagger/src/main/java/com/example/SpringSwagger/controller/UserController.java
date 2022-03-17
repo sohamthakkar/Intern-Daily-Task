@@ -3,7 +3,6 @@ package com.example.SpringSwagger.controller;
 import com.example.SpringSwagger.model.User;
 import com.example.SpringSwagger.services.UserServices;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +10,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserController {
-    @Autowired
-    UserServices userServices;
 
+    private final UserServices userServices;
+
+    public UserController(UserServices userServices) {
+        this.userServices = userServices;
+    }
 
 
     @PostMapping("/user")
