@@ -1,4 +1,4 @@
-package com.example.springsecurityauthserver.controller;
+package com.example.security.springsecurityauthserver.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,13 +8,14 @@ import java.security.Principal;
 
 @RestController
 @RequestMapping("/rest/hello")
-public class HelloResource {
+public class HelloController {
 
 
     @GetMapping("/principal")
     public Principal user(Principal principal) {
         return principal;
     }
+
     @GetMapping
     public String hello() {
         return "Hello World";

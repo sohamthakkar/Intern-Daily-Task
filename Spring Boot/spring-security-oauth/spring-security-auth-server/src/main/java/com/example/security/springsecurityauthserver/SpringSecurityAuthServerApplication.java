@@ -1,4 +1,4 @@
-package com.example.springsecurityauthserver;
+package com.example.security.springsecurityauthserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

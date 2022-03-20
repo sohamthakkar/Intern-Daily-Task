@@ -1,0 +1,34 @@
+server:
+  port: 8081
+  context-path: /auth
+security:
+  basic:
+    enable: false
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/oauthdb
+    username: root
+    password: jaygohel
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect=org:
+          hibernate:
+            dialect:
+              MySQL5Dialect: org.hibernate.dialect.MySQL5Dialect
+
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+
+

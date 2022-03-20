@@ -22,3 +22,12 @@ security:
 spring:
   thymeleaf:
     cache: false
+  
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+
+
