@@ -1,26 +1,29 @@
 package com.example.SpringBootDemo.services;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.SpringBootDemo.customexception.ResourceNotFound;
 import com.example.SpringBootDemo.dao.UserDao;
 import com.example.SpringBootDemo.model.UserModel;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @Service
 public class UserServicesImp implements UserServices{
 
 	
+
 	@Autowired
-	private UserDao userDao;
+	 UserDao userDao;
 
 	@Override
 	public UserModel saveEmployee(UserModel user) {
-		UserModel userData = userDao.save(user);
-		return userData;
+		return userDao.save(user);
 	}		
 
 	@Override

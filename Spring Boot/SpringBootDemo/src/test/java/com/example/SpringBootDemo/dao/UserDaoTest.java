@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@DataJpaTest
+@SpringBootTest
 class UserDaoTest {
 
     @Autowired
@@ -64,12 +64,12 @@ class UserDaoTest {
     @Order(5)
     @Rollback(value = false)
     public void deleteUserTest(){
-        UserModel userModel = userDao.findById(12).get();
+        UserModel userModel = userDao.findById(14).get();
         userDao.delete(userModel);
 
         UserModel userModel1 = null;
 
-        Optional<UserModel> userData = userDao.findById(12);
+        Optional<UserModel> userData = userDao.findById(14);
         if(userData.isPresent()){
             userModel1 = userData.get();
         }

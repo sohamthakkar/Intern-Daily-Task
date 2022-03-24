@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.example.SpringBootDemo.model.UserModel;
+import org.springframework.http.ResponseEntity;
 
 public interface UserServices {
 

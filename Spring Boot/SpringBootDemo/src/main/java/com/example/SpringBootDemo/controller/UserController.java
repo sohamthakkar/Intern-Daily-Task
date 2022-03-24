@@ -5,6 +5,7 @@ import java.util.List;
 import javax.print.DocFlavor.STRING;
 import javax.validation.Valid;
 
+import com.example.SpringBootDemo.dao.UserDao;
 import com.example.SpringBootDemo.services.UserServicesImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,9 @@ public class UserController {
 	
 	@Autowired
 	private UserServices userServices;
+
+	@Autowired
+	private UserDao userDao;
 	
 	@GetMapping("/normal/login")
 	public String loginUser() {
@@ -37,9 +41,10 @@ public class UserController {
 
 	@PostMapping("/api/user")
 	public UserModel saveEmployee(@Valid @RequestBody UserModel user){
-		UserServices userSer = new UserServicesImp();
-		userSer.saveEmployee(user);
-		return user;
+//		UserServices userSer = new UserServicesImp();
+//		userSer.saveEmployee(user);
+		//userDao.save(user);
+		return userServices.saveEmployee(user);
 	}
 
 	//@PreAuthorize("hasRole('ADMIN')")
