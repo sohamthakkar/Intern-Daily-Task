@@ -1,8 +1,6 @@
 package com.example.SpringBootDemo.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +12,9 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "User_Data")
 public class UserModel {
 	
@@ -33,50 +34,17 @@ public class UserModel {
 	
 	
 	@NotEmpty(message = "Lastname can not be null...")
-	@Column(name = "Email_ID")
+	@Column(name = "Email_ID", unique = true)
 	private String email;
 	
 	@NotEmpty(message = "Lastname can not be null...")
 	@Column(name="Mobile_Number")
 	private String mobile;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getFname() {
-		return fname;
-	}
-
-	public void setFname(String fname) {
+	public UserModel(String fname, String lname, String email, String mobile) {
 		this.fname = fname;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public void setLname(String lname) {
 		this.lname = lname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.print.DocFlavor.STRING;
 import javax.validation.Valid;
 
+import com.example.SpringBootDemo.services.UserServicesImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,16 +37,18 @@ public class UserController {
 
 	@PostMapping("/api/user")
 	public UserModel saveEmployee(@Valid @RequestBody UserModel user){
-		return userServices.saveEmployee(user);
+		UserServices userSer = new UserServicesImp();
+		userSer.saveEmployee(user);
+		return user;
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/api/user")
 	public List<UserModel> showUser(){
 		return userServices.userList();
 	}
 	
-	@PreAuthorize("hasRole('ADMIN')") 
+	//@PreAuthorize("hasRole('ADMIN')")
 	//using antotation without passing any bean config i removedthen bean wehere i assigned role in AuthConfig file
 	@GetMapping("/api/user/{id}")
 	public UserModel singleUser(@PathVariable("id") int userId ) {

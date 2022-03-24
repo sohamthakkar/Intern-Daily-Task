@@ -16,10 +16,11 @@ public class UserServicesImp implements UserServices{
 	
 	@Autowired
 	private UserDao userDao;
-	
+
 	@Override
 	public UserModel saveEmployee(UserModel user) {
-		return userDao.save(user);
+		UserModel userData = userDao.save(user);
+		return userData;
 	}		
 
 	@Override
