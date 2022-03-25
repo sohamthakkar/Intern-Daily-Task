@@ -1,12 +1,10 @@
 package com.example.SpringBootDemo.dao;
 
 import com.example.SpringBootDemo.model.UserModel;
-import org.apache.catalina.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
@@ -64,12 +62,12 @@ class UserDaoTest {
     @Order(5)
     @Rollback(value = false)
     public void deleteUserTest(){
-        UserModel userModel = userDao.findById(14).get();
+        UserModel userModel = userDao.findById(16).get();
         userDao.delete(userModel);
 
         UserModel userModel1 = null;
 
-        Optional<UserModel> userData = userDao.findById(14);
+        Optional<UserModel> userData = userDao.findById(16);
         if(userData.isPresent()){
             userModel1 = userData.get();
         }
