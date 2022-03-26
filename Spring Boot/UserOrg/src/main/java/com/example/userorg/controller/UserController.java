@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @RestController
@@ -16,7 +18,7 @@ public class UserController {
     UserServices userServices;
 
     @PostMapping("/addUser")
-    public User getUser(@RequestBody User user) {
+    public User getUser(@Valid @RequestBody User user) {
         return userServices.addUser(user);
     }
 
@@ -25,13 +27,13 @@ public class UserController {
         return userServices.showUsers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("?userID={id}")
     public User getUser(@PathVariable("id") long id){
         return userServices.getUser(id);
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable long id, @RequestBody User user){
+    public User updateUser(@PathVariable long id, @Valid @RequestBody User user){
         return userServices.updateUser(id,user);
     }
 
