@@ -135,7 +135,7 @@ class OrgControllerTest {
         Orgenization orgTwo= new Orgenization(2L,"Testing",userListTwo);
 
         //mocking
-        when(orgServices.getOneOrg(1L)).thenReturn(orgOne);
+        //when(orgServices.getOneOrg(1L)).thenReturn(orgOne);
         when(orgServices.getOneOrg(2L)).thenReturn(orgTwo);
 
         //test
@@ -146,14 +146,34 @@ class OrgControllerTest {
         List<User> updateUserList = new ArrayList<>();
         updateUserList.add(updateUser);
         org.setUsers(updateUserList);
-        Orgenization orgUpdate = orgController.updateOrgenization(1L,orgOne);
+        orgController.updateOrgenization(2L,orgTwo);
 
         //assert
-        verify(orgServices, times(1)).getOneOrg(1L);
-        assertEquals(orgUpdate.getOrgName(), org.getOrgName());
+        assertEquals("Softvan", org.getOrgName());
     }
 
     @Test
     void deleteOrgenization() {
+        //Mock
+        List<User> userListOne = new ArrayList<>();
+        User userOne = new User(1L,"test1","test1@g.c", "1346798520");
+        User userTwo = new User(2L,"test2","test2@g.c", "1346798520");
+        User userthree = new User(3L,"test3","test3@g.c", "1346798520");
+        userListOne.add(userOne);
+        userListOne.add(userTwo);
+        List<User> userListTwo = new ArrayList<>();
+        userListTwo.add(userthree);
+        Orgenization orgOne= new Orgenization(1L,"Appwrite",userListOne);
+        Orgenization orgTwo= new Orgenization(2L,"Testing",userListTwo);
+
+        //mocking
+        when(orgServices.getOneOrg(1L)).thenReturn(orgOne);
+        when(orgServices.getOneOrg(2L)).thenReturn(orgTwo);
+
+        //test
+        orgController.deleteOrgenization(2L);
+
+        //assert
+        verify(orgServices, times(1)).deleteOrgenization(2L);
     }
 }

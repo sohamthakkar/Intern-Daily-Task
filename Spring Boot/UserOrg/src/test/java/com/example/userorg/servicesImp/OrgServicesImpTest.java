@@ -1,10 +1,12 @@
 package com.example.userorg.servicesImp;
 
+import com.example.userorg.customException.ResourceNotFound;
 import com.example.userorg.dao.OrgDao;
 import com.example.userorg.dao.UserDao;
 import com.example.userorg.model.Orgenization;
 import com.example.userorg.model.User;
 import org.assertj.core.api.Assertions;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -165,5 +167,90 @@ class OrgServicesImpTest {
 
         //verify
         verify(orgDao, times(1)).deleteById(2L);
+    }
+
+    @Test // UPDATE USER BY ID BUT USER NOT FOUND WITH THIS ID
+    void updateUserNotFoundTest() throws Exception {
+        // Request
+        Long mockUSerId = 1L;
+        // Mocks
+
+        ResourceNotFound expectedResponse = new ResourceNotFound("User Not Found With ID : " + mockUSerId);
+        // Mocking
+        when(orgDao.findById(mockUSerId)).thenThrow(expectedResponse);
+
+        // Test
+        ResourceNotFound actualResponse = Assert.assertThrows(ResourceNotFound.class, () -> orgServicesImp.getOneOrg(mockUSerId));
+
+        // Assertion
+        Mockito.verify(orgDao, times(1)).findById(mockUSerId);
+        assertEquals(expectedResponse.getMessage(), actualResponse.getMessage());
+    }
+    @Test // UPDATE STUDENT BY ID BUT USER NOT FOUND
+    void updateuserByIdFaileduserNotFound() {
+        // Request
+        Long mockUserId = 1L;
+        List<User> userListOne = new ArrayList<>();
+        User userOne = new User(1L,"test1","test1@g.c", "1346798520");
+        User userTwo = new User(2L,"test2","test2@g.c", "1346798520");
+        User userthree = new User(3L,"test3","test3@g.c", "1346798520");
+        userListOne.add(userOne);
+        userListOne.add(userTwo);
+        List<User> userListTwo = new ArrayList<>();
+        userListTwo.add(userthree);
+        Orgenization orgOne= new Orgenization(1L,"Appwrite",userListOne);
+        Orgenization orgTwo= new Orgenization(2L,"Testing",userListTwo);
+
+        // Mocks
+        when(orgDao.findById(mockUserId)).thenReturn(Optional.empty());
+
+        // Test
+        ResourceNotFound actualResponse = assertThrows(ResourceNotFound.class,
+                () -> orgServicesImp.updateOrgenization(mockUserId, orgOne));
+
+        // Assertion
+        verify(orgDao, times(1)).findById(mockUserId);
+        assertNotNull(actualResponse);
+
+
+
+    }
+
+    @Test // GET USER BY ID AND USER NOT FOUND WITH ID TEST
+    void getUserByIdNotFoundTest() throws Exception {
+
+        // Request
+        Long mockUSerId = 1L;
+        // Mocks
+        ResourceNotFound expectedResponse = new ResourceNotFound(
+                "User Not Found With ID : " + mockUSerId);
+        // Mocking
+        when(orgDao.findById(mockUSerId)).thenThrow(expectedResponse);
+
+        // Test
+        ResourceNotFound actualResponse = Assert.assertThrows(ResourceNotFound.class,
+                () -> orgServicesImp.getOneOrg(mockUSerId));
+
+        // Assertion
+        Mockito.verify(orgDao, times(1)).findById(mockUSerId);
+        assertEquals(expectedResponse.getMessage(), actualResponse.getMessage());
+    }
+
+    @Test // DELETE USER BY ID AND USER NOT FOUND WITH ID TEST
+    void deleteUserByIdFailedUserNotFoundTest() {
+        // Request
+        Long mockUserId = 1L;
+
+        // Mocks
+        when(orgDao.findById(mockUserId)).thenReturn(Optional.empty());
+
+        // Test
+        ResourceNotFound actualResponse = assertThrows(ResourceNotFound.class,
+                () -> orgServicesImp.deleteOrgenization(mockUserId));
+        // Assertion
+        System.out.println(actualResponse.getMessage());
+        verify(orgDao, times(1)).findById(mockUserId);
+        assertNotNull(actualResponse);
+
     }
 }
