@@ -29,4 +29,9 @@ public class User {
     @NotEmpty(message = "User Mobile Must Required")
     private String userMobile;
 
+    public User(String userName, String userEmail, String userMobile) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userMobile = userMobile;
+    }
 }

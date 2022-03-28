@@ -27,4 +27,8 @@ public class Orgenization {
     @Valid
     private List<User> users;
 
+    public Orgenization(String orgName, List<User> users) {
+        this.orgName = orgName;
+        this.users = users;
+    }
 }

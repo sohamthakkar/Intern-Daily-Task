@@ -63,7 +63,7 @@ class UserServicesImpTest {
     @Order(3)
     @Rollback(value = false)
     void userData() {
-        //1. using when
+
         when(userDao.findById(1)).thenReturn(Optional.of(new UserModel(1, "test", "test", "test@gmail.com", "1234569870")));
 
         UserModel user = userServices.userData(1);

@@ -2,6 +2,7 @@ package com.example.userorg.servicesImp;
 
 import com.example.userorg.customException.ResourceNotFound;
 import com.example.userorg.dao.OrgDao;
+import com.example.userorg.dto.OrgDto;
 import com.example.userorg.model.Orgenization;
 import com.example.userorg.servics.OrgServices;
 import org.aspectj.weaver.ast.Or;
@@ -42,6 +43,6 @@ public class OrgServicesImp implements OrgServices {
     @Override
     public void deleteOrgenization(long id) {
         Orgenization orgs = orgDao.findById(id).orElseThrow(() -> new ResourceNotFound("Organization Id: "+id+" is not found"));
-        orgDao.delete(orgs);
+        orgDao.deleteById(id);
     }
 }
