@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js task</title>
+</head>
+<body>
+    <h1 id="var" style="color: black;">Intern Task</h1>
+    <h1 id="let" style="color: black;">Intern Task</h1>
+    <button onclick="colour()">Click</button>
+
+    <p id="demo"></p>
+
+    <script type="text/javascript">
+
+        //let var const
+        const colour = ()=> {
+            if(document.getElementById('var').style.color == 'black'){
+                var col1 = 'green'
+            }else{
+                 col1 = 'red'
+            }
+
+            let col2
+            if(document.getElementById('let').style.color == 'black'){
+                col2 = 'yellow'
+            }else{
+                 col2 = 'aqua'
+            }
+
+            document.getElementById('var').style.color = col1
+            document.getElementById('let').style.color = col2
+            
+            //lembda and for each
+            const cars = ["BMW", "Volvo", "Mini"];
+            let text = "";
+
+            cars.forEach(x => {
+                //text = text +x + "</br>"
+                text += x + "</br>"
+            });
+
+            document.getElementById('demo').innerHTML = text
+        }
+
+        //Map
+        const apples = {name: 'Apples'}
+        const bananas = {name: 'Bananas'}
+        const oranges = {name: 'Oranges'}
+
+        const fruit = new Map()
+
+        fruit.set(apples, 500)
+        fruit.set(bananas, 200)
+        fruit.set(oranges, 300)
+
+        let names = ""
+        fruit.forEach(x => {
+                //text = text +x + "</br>"
+                names += x + "</br>"
+            });
+
+        document.getElementById('demo').innerHTML = names
+
+
+        //Async and sync
+        const fun2 = () => {
+            console.log("fun2 run")
+        }
+        const fun1 = () => {
+            console.log("fun1 run")
+
+            fun2();
+
+            console.log("fun1 end");
+        }
+        
+        fun1();/// call to fun1 function then start the function 
+
+
+
+
+    </script>
+</body>
+</html>

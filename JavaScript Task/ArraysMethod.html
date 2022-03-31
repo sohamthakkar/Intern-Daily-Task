@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="cars"></p>
+    <p id="car"></p>
+    <p id="redCar"></p>
+    <script>
+        let allCars = [
+            {
+                "id" : 1,
+                "color": "purple",
+                "type": "minivan",
+                "registration": new Date('2017-01-03'),
+                "capacity": 7
+            },
+            {
+                "id" : 2,
+                "color": "red",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 5
+            },
+            {
+                "id" : 3,
+                "color": "green",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 4
+            },
+            {
+                "id" : 4,
+                "color": "pink",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 5
+            },
+            {
+                "id" : 5,
+                "color": "orange",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 2
+            },
+            {
+                "id" : 6,
+                "color": "black",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 8
+            },
+            {
+                "id" : 7,
+                "color": "black",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 4
+            },
+            {
+                "id" : 8,
+                "color": "red",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 4
+            }
+        ]
+        console.log(allCars);
+        let car = {
+                "id" : 9,
+                "color": "red",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 4
+            }
+
+        //allCars.unshift(car)
+        // allCars.push(car)
+        //allCars.splice(4,0,car)
+        //
+        
+        let redCars = new Array();
+    
+        let findCar = allCars.forEach(element => {
+            if(element.color === "red"){
+                    redCars.push(element)
+                }
+        });
+
+        console.log(redCars);
+
+        
+        //convert object to string
+        document.getElementById("cars").innerHTML = JSON.stringify(allCars)
+        document.getElementById("car").innerHTML = JSON.stringify(findCar)
+        document.getElementById("redCar").innerHTML = JSON.stringify(redCars)
+
+        //setInterval(()=> alert("hello"),3000)
+    </script>
+</body>
+</html>

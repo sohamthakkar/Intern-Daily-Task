@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="cars"></p>
+    <p id="carsMap"></p>
+    <p id="carsReduce"></p>
+    <script>
+        let allCars = [
+            {
+                "id" : 1,
+                "color": "purple",
+                "type": "minivan",
+                "registration": new Date('2017-01-03'),
+                "capacity": 7
+            },
+            {
+                "id" : 2,
+                "color": "red",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 5
+            },
+            {
+                "id" : 3,
+                "color": "green",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 4
+            },
+            {
+                "id" : 4,
+                "color": "pink",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 5
+            },
+            {
+                "id" : 5,
+                "color": "orange",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 2
+            }
+        ]
+
+        let result = allCars.filter(car => car.color === "orange")
+        let mapResult = allCars.map(car => car.color === "orange")
+        let reduce = allCars.reduce(car => car.color === "orange")
+
+        document.getElementById("cars").innerHTML = JSON.stringify(result)
+        document.getElementById("carsMap").innerHTML = JSON.stringify(mapResult)
+        document.getElementById("carsReduce").innerHTML = JSON.stringify(reduce)
+        console.log(result);
+        console.log(mapResult);
+        console.log(mapResult);
+    </script>
+</body>
+</html>

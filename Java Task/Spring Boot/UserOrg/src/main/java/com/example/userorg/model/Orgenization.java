@@ -23,7 +23,7 @@ public class Orgenization {
     @Column(name="org_name")
     private String orgName;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Valid
     private List<User> users;
 
