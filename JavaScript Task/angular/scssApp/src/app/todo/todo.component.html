@@ -1,0 +1,15 @@
+<div class="todos-head">
+  <div class="todo-entry">
+
+    <input class="todo-input"  #task type="text" placeholder="Enter your task">
+    <button class="todo-btn" (click)="addTask(task.value)" >Submit</button>
+  </div>
+  <div class="todo-list">
+    <ul  *ngFor="let item of taskList">
+      <div class="todo-card">
+        <li><h4 class="task-name">{{item.name}}</h4></li>
+        <li><button class="todo-btn" (click)="removeTask(item.id)">Remove</button></li>
+      </div>
+    </ul>
+  </div>
+</div>

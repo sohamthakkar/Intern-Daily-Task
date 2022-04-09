@@ -1,0 +1,13 @@
+<!--<app-header></app-header>-->
+<!--&lt;!&ndash;<mat-slider min="1" max="100" step="1" value="1"></mat-slider>&ndash;&gt;-->
+<!--<h3>Todo app</h3>-->
+<!--<app-todo></app-todo>-->
+
+<!--<h3>reusable component and pass data  child to component</h3>-->
+<!--<ul *ngFor="let user of userDetail">-->
+<!--  <app-user-detail [item] = 'user'></app-user-detail>-->
+  <!-- reusable component and pass data  child to component which is user child -->
+<!--</ul>-->
+
+<h3>Pass data child to parent</h3>
+<app-child (updateDataEvent)="updateData($event)"></app-child>

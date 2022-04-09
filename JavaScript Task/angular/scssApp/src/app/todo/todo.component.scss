@@ -1,0 +1,49 @@
+
+
+.todo-entry{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  .todo-input{
+    width: 20%;
+    box-sizing: border-box;
+    padding: 8px 3px;
+    border: 1px solid black;
+    margin: 0 10px;
+    font-size: 17px;
+    border-radius: 4px;
+  }
+}
+.todo-btn {
+  padding: 5px 20px;
+  background-color: #04AA6D;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: white;
+  font-size: 17px;
+
+  &:hover {
+    color: black;
+    background: white;
+    transition: all 0.8s ease-in-out;
+    border: 1px solid black;
+  }
+}
+.todo-list{
+  margin: 20px;
+  width: 100%;
+  height: 70vh;
+  .todo-card{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid #04AA6D;
+    border-radius: 5px;
+    padding: 10px 8px;
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+}
