@@ -1,0 +1,19 @@
+.form-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  .form-group{
+    margin-bottom: 10px;
+  }
+}
+.form-main{
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
+}
+.max-width{
+  max-width: 500px;
+  padding: 0 80px;
+  margin: auto;
+}

@@ -1,13 +1,49 @@
-<!--<app-header></app-header>-->
-<!--&lt;!&ndash;<mat-slider min="1" max="100" step="1" value="1"></mat-slider>&ndash;&gt;-->
+<app-header></app-header>
+<!--<mat-slider min="1" max="100" step="1" value="1"></mat-slider>-->
 <!--<h3>Todo app</h3>-->
 <!--<app-todo></app-todo>-->
 
 <!--<h3>reusable component and pass data  child to component</h3>-->
 <!--<ul *ngFor="let user of userDetail">-->
 <!--  <app-user-detail [item] = 'user'></app-user-detail>-->
-  <!-- reusable component and pass data  child to component which is user child -->
+<!-- reusable component and pass data  child to component which is user child -->
 <!--</ul>-->
 
-<h3>Pass data child to parent</h3>
-<app-child (updateDataEvent)="updateData($event)"></app-child>
+<!--<h3>Pass data child to parent</h3>-->
+<!--<app-child (updateDataEvent)="updateData($event)"></app-child>-->
+
+<!--<h3>Switch Case</h3>-->
+<!--<div [ngSwitch]="color">-->
+<!--  <h1 *ngSwitchCase="'red'" style="color: red">Red Color</h1>-->
+<!--  <h1 *ngSwitchCase="'green'" style="color: green">Green Color</h1>-->
+<!--  <h1 *ngSwitchCase="'blue'" style="color: blue">Blue Color</h1>-->
+<!--  <h1 *ngSwitchCase="'yellow'" style="color: yellow">yellow Color</h1>-->
+<!--</div>-->
+<!--<h3>Nested If Else Case</h3>-->
+<!--<ng-template [ngIf]="color==='red'">-->
+<!--  <h1  style="color: red">Red Color</h1>-->
+<!--</ng-template>-->
+<!--<ng-template [ngIf]="color==='blue'">-->
+<!--  <h1  style="color: blue">blue Color</h1>-->
+<!--</ng-template>-->
+
+
+<!--<h3>Pipes in Angular</h3><br><br>-->
+<!--<h3>{{text | slice : 1:13 |uppercase}}</h3>-->
+<!--<h3>{{data | json }}</h3>-->
+<!--<h3>{{arr | json}}</h3>-->
+<!--<h3>Custom Pipe</h3>-->
+<!--<h3>{{20 | usedInr:2}}</h3>-->
+<!--<div class="pip-style" *ngFor="let name of arr">-->
+<!--  <p>{{name | usedInr }}</p>-->
+<!--</div>-->
+
+<!--<a routerLink="home">Home</a><br>-->
+<!--<a routerLink="about">About</a><br>-->
+
+<!--<br>-->
+<!--<a routerLink="about/20">Jay</a>-->
+
+<router-outlet></router-outlet>
+<app-show-user></app-show-user>
+

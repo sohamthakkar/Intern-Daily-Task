@@ -17,4 +17,17 @@ export class AppComponent {
   updateData(item:string){
     console.warn(item)
   }
+  // Switch case
+  color= 'blue'
+
+
+  //pip
+  text = 'Angular tutorial'
+  data = {
+    name: 'jay',
+    age : 22,
+    email: 'jay@g.c'
+  }
+  arr:any[] = ['jay gohel', 'nisarg patel','Kirti', 'Ilse Lesure', 'dev Gatz', 'Alphonso Wellingford']
 }
+
